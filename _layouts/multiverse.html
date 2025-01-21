@@ -12,7 +12,7 @@
       <div id="main">
         {% assign current_tag = page.tag | default: "all" %}
         
-        {% for image in site.data.images %}
+        <!-- {% for image in site.data.images %}
           {% if current_tag == "all" or current_tag in image.tag %}
           <article class="thumb">
             <a href="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" class="image">
@@ -22,7 +22,36 @@
             <p>{{ image.caption }}</p>
           </article>
           {% endif %}
+        {% endfor %} -->
+
+        {% for image in site.data.images %}
+          {% if current_tag == "all" %}
+            <article class="thumb">
+              <a href="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" class="image">
+                <img src="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" alt="{{ image.title }}" />
+              </a>
+              <h2>{{ image.title }}</h2>
+              <p>{{ image.caption }}</p>
+            </article>
+          {% else %}
+            {% assign match = false %}
+            {% for tag in image.tag %}
+              {% if tag == current_tag %}
+                {% assign match = true %}
+              {% endif %}
+            {% endfor %}
+            {% if match %}
+              <article class="thumb">
+                <a href="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" class="image">
+                  <img src="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" alt="{{ image.title }}" />
+                </a>
+                <h2>{{ image.title }}</h2>
+                <p>{{ image.caption }}</p>
+              </article>
+            {% endif %}
+          {% endif %}
         {% endfor %}
+
       </div>
 
       {%- include footer.html -%}
