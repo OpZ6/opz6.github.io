@@ -9,20 +9,7 @@
 
       {%- include header.html -%}
 
-      <div id="main">
-        <!-- {% for image in site.images %}
-        <article class="thumb">
-          <a href="{{site.baseurl}}/assets/images/fulls/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" class="image">
-            <img src="{{site.baseurl}}/assets/images/thumbs/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" alt="{{ image.title }}" />
-            <img src="{{site.baseurl}}/assets/images/fulls/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" alt="{{ image.title }}" />
-          </a>
-
-          <h2>{{ image.title }}</h2>
-          <p>{{ image.caption }}</p>
-        </article>
-        {% endfor %} -->
-
-
+      <!-- <div id="main">
         {% for image in site.data.images %}
         <article class="thumb">
           <a href="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" class="image">
@@ -32,9 +19,22 @@
           <p>{{ image.caption }}</p>
         </article>
         {% endfor %}
+      </div>         -->
+
+      <div id="main">
+        {% assign current_tag = page.tag | default: "all" %}
         
-        <!-- no idea where to put this... -->
-        <!-- {{ content }} -->
+        {% for image in site.data.images %}
+          {% if current_tag == "all" or image.tag == current_tag %}
+          <article class="thumb">
+            <a href="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" class="image">
+              <img src="{{ site.baseurl }}/assets/images/fulls/{{ image.path }}" alt="{{ image.title }}" />
+            </a>
+            <h2>{{ image.title }}</h2>
+            <p>{{ image.caption }}</p>
+          </article>
+          {% endif %}
+        {% endfor %}
       </div>
 
       {%- include footer.html -%}
