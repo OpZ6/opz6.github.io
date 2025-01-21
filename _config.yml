@@ -19,3 +19,5 @@ plugins:
 collections:
   images:
     output: true
+
+google_analytics: G-LDEWL18LG1
