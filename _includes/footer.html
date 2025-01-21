@@ -2,35 +2,30 @@
   <div class="inner split">
     <div>
       <section>
-        <h2>{{ site.title }}</h2>
+        <h3>{{ site.title }}</h3>
         <p>{{ site.description }}</p>
       </section>
       {%- include social.html -%}
-      <p class="copyright">
-        &copy; <a href="mailto:{{ site.email }}">{{ site.author }}</a>. Design: <a href="http://html5up.net">HTML5 UP</a>.
-      </p>
+      <section>
+        <p class="copyright">
+          &copy; <a href="mailto:{{ site.email }}">{{ site.author }}</a>. Design: <a href="http://html5up.net">HTML5 UP</a>.
+        </p>
+      </section>
     </div>
     <div>
-      <!-- <section>
-        <h2>Get in touch</h2>
-        <form method="post" action="#">
-          <div class="fields">
-            <div class="field half">
-              <input type="text" name="name" id="name" placeholder="Name" />
-            </div>
-            <div class="field half">
-              <input type="text" name="email" id="email" placeholder="Email" />
-            </div>
-            <div class="field">
-              <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
-            </div>
+      <section>
+        <div class="fields">
+          <div class="field half">
+            <h3>CLASSIFICATION</h3>
+            <ul>
+              <li><a href="{{ site.baseurl }}/tag/all">All</a></li>
+              <li><a href="{{ site.baseurl }}/tag/JP2412">Japan202412</a></li>
+              <li><a href="{{ site.baseurl }}/tag/JP2408">Japan202408</a></li>
+              <li><a href="{{ site.baseurl }}/tag/JP2404">Japan202404</a></li>
+            </ul>
           </div>
-          <ul class="actions">
-            <li><input type="submit" value="Send" class="primary" /></li>
-            <li><input type="reset" value="Reset" /></li>
-          </ul>
-        </form>
-      </section> -->
+        </div>
+      </section>
     </div>
   </div>
 </footer>
