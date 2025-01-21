@@ -1,4 +1,4 @@
 ---
 layout: multiverse
-tag: DAILY
+tag: PICK
 ---
