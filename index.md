@@ -1,3 +1,4 @@
 ---
 layout: multiverse
+tag: DAILY
 ---
